@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-pushd ./nodejs 
+pushd ./nodejs
 echo "build nodejs"
 npm i
 npm run webpack
 popd
+
 
 pushd ./lancher
 go mod download
