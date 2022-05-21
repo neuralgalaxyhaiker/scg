@@ -1,0 +1,22 @@
+schemaVersion: 2.1.0
+
+metadata:
+  name: che-blog
+
+components:
+  - name: jekyl1
+    container:
+      image: quay.io/eclipse/che-blog:next
+      memoryLimit: 4Gi
+      endpoints:
+        - exposure: public
+          name: jekyl1
+          protocol: http
+          targetPort: 4000
+
+commands:
+  - id: start
+    exec:
+      component: jekyl1
+      commandLine: |
+        jekyl1 serve --incremental --watch
